@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './ecom/home/home.component';
-import { ConnectComponent } from './ecom/connect/connect.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SubscribeComponent } from './components/ecom/subscribe/subscribe.component';
 import { ProductAddComponent } from './components/seller/product-add/product-add.component';
 import { ProductListComponent } from './components/seller/product-list/product-list.component';
@@ -12,7 +11,11 @@ import { ProductUpdateComponent } from './components/seller/product-update/produ
 import { CategoryListComponent } from './components/admin/category-list/category-list.component';
 import { CategoryAddComponent } from './components/admin/category-add/category-add.component';
 import { CategoryUpdateComponent } from './components/admin/category-update/category-update.component';
-
+import { HomeComponent } from './components/ecom/home/home.component';
+import { ConnectComponent } from './components/ecom/connect/connect.component';
+import { HttpClientModule } from '@angular/common/http'
+import { EcomService } from './service/ecom.service';
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +31,12 @@ import { CategoryUpdateComponent } from './components/admin/category-update/cate
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EcomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
